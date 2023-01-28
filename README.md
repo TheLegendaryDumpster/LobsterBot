@@ -21,7 +21,7 @@ LobsterBot is a simple free and open source discord bot
     token=BOT TOKEN
     clientId=CLIENT ID
     guildId=SERVER ID
-    testing=true
+    TESTING=true
     ```
     and if you want, you can add another line with `PROFANITY_DISABLED=true` if you want to disable profanity
 15. open a terminal
