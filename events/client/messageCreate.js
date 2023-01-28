@@ -1,6 +1,6 @@
 const { ButtonBuilder } = require("@discordjs/builders")
 const { ActionRowBuilder, ButtonStyle } = require("discord.js")
-
+const profanity = require('../../profanity.js');
 // ⬆️⬇️✅⛔⚒️
 module.exports = {
     name: "messageCreate",
@@ -11,6 +11,10 @@ module.exports = {
         const users = message.mentions.users.map((user) => user.id);
         // const userTags = message.mentions.users.map((user) => user.tag);
         const disallowedUsers = [];
+        if(process.env.TESTING && message.guildId == process.env.guildId && process.env.PROFANITY_DISABLED && profanity.some(word=>message.content.includes(word))) {
+            await message.delete();
+            await message.author.send('Please do not say that here!')
+        }
         for(let i = 0;i < users.length;i++) {
             let user = users[i];
             let isAllowed = true;
