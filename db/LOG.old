@@ -1,5 +1,6 @@
-2023/01/28-15:23:13.588 aa98 Recovering log #11801
-2023/01/28-15:23:13.588 aa98 Level-0 table #11803: started
-2023/01/28-15:23:13.610 aa98 Level-0 table #11803: 216 bytes OK
-2023/01/28-15:23:13.620 aa98 Delete type=0 #11801
-2023/01/28-15:23:13.620 aa98 Delete type=3 #11800
+2023/01/28-21:19:34.523 8fec Recovering log #12
+2023/01/28-21:19:34.523 8fec Level-0 table #14: started
+2023/01/28-21:19:34.556 8fec Level-0 table #14: 203 bytes OK
+2023/01/28-21:19:34.566 8fec Delete type=0 #12
+2023/01/28-21:19:34.566 8fec Delete type=3 #10
+2023/01/28-21:19:34.572 c880 Moved #14 to level-1 203 bytes OK: files[ 3 1 0 0 0 0 0 ]

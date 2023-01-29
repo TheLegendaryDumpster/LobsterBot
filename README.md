@@ -23,7 +23,7 @@ LobsterBot is a simple free and open source discord bot
     guildId=SERVER ID
     TESTING=true
     ```
-    and if you want, you can add another line with `PROFANITY_DISABLED=true` if you want to disable profanity
+    profanity filter has moved to /profanity-toggle
 15. open a terminal
 16. type `npm install`
 17. type `npm i -g pm2`

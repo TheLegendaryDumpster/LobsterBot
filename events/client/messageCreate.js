@@ -5,13 +5,16 @@ const profanity = require('../../profanity.js');
 module.exports = {
     name: "messageCreate",
     async execute(message, client, fns) {
-        console.log(message)
-        console.log(message.channel)
         if(message.author.bot) return;
         const users = message.mentions.users.map((user) => user.id);
         // const userTags = message.mentions.users.map((user) => user.tag);
         const disallowedUsers = [];
-        if(process.env.TESTING && message.guildId == process.env.guildId && process.env.PROFANITY_DISABLED && profanity.some(word=>message.content.includes(word))) {
+        let profanityFilterEnabled = false;
+        try {
+            let profanityFilterEnabledObj = await fns.get("Filter"+message.guildId);
+            profanityFilterEnabled = profanityFilterEnabledObj.data == 'true' ? true : false;
+        } catch {}
+        if(process.env.TESTING && message.guildId == process.env.guildId && profanityFilterEnabled && profanity.some(word=>message.content.includes(word))) {
             await message.delete();
             await message.author.send('Please do not say that here!')
         }
@@ -39,7 +42,12 @@ module.exports = {
                 ]
             })
         }
-        if(message.channelId == '1059338598123589662' || message.channelId == '922867510695559188') {
+        let suggestionsChannel = '0';
+        try {
+            let suggestionsChannelObj = await fns.get('SuggestChannel'+message.guildId);
+            suggestionsChannel = suggestionsChannelObj.data;
+        } catch {}
+        if(message.channelId == suggestionsChannel) {
             let currentSuggestionCount = await fns.get('SuggestionCount-'+message.guildId);
             if(currentSuggestionCount.data) {
                 await fns.put('SuggestionCount-'+message.guildId, currentSuggestionCount.data + 1)

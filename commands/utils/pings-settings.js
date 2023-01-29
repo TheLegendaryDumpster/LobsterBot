@@ -13,7 +13,6 @@ module.exports = {
         let bool = interaction.options.get("boolean");
         if(bool) {
             await fns.put("AllowPings_"+interaction.user.id, bool.value);
-            console.log(bool.value);
             await interaction.reply({content: bool.value ? `✅ Pings enabled` : `❌ Pings disabled`, ephemeral: true});
         } else {
             let isAllowed;
