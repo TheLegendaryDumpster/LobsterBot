@@ -5,10 +5,10 @@ module.exports = {
         .setName("say")
         .setDescription("Make the bot say something.")
         .addStringOption(option=>
-            option.setName("Text")
+            option.setName("text")
                 .setDescription("What to say.")
                 .setRequired(true)),
     async execute(interaction, client, fns) {
-        interaction.reply(interaction.options.get('string').value)
+        interaction.reply(interaction.options.get('text').value)
     }
 }
