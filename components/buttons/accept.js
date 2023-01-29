@@ -1,12 +1,14 @@
+const { Colors } = require("../../things");
+
 module.exports = {
     data: {
         name: "accept"
     },
     async execute(interaction, client) {
 
-        if(interaction.member.permissions.has('Administrator') || interaction.member.permissions.has('ManageGuild')) {
+        if (interaction.member.permissions.has('Administrator') || interaction.member.permissions.has('ManageGuild')) {
             let embed = interaction.message.embeds[0].data;
-            embed.color = 0x00ff00;
+            embed.color = Colors.Success;
             embed.footer.text = "Status: Done"
             await interaction.message.edit({
                 embeds: [embed]

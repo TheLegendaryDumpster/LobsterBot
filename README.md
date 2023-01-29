@@ -32,4 +32,16 @@ LobsterBot is a simple free and open source discord bot
 
 ## Please report any bugs in the issues tab
 
-![](https://bdc2020.o0bc.com/wp-content/uploads/2021/11/blue-lobster-618af4d323eb6.jpeg)
+# Features
+
+## Suggestions
+
+![](https://media.discordapp.net/attachments/1069077521028628493/1069276694592106637/image.png)
+
+Suggestions are a feature that you can use to get feature requests on your server, very useful for projects where you want to get suggestions from people
+
+## Profanity filter
+
+![](https://media.discordapp.net/attachments/1069077521028628493/1069277275696156743/image.png)
+
+Profanity filter can be used to block words, i will try to add custom word lists later, but it works for now **I recommend using literally any other bot with automod if you're not using other features from this bot**

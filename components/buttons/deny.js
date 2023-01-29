@@ -1,12 +1,14 @@
+const { Colors } = require("../../things");
+
 module.exports = {
     data: {
         name: "deny"
     },
     async execute(interaction, client) {
 
-        if(interaction.member.permissions.has('Administrator') || interaction.member.permissions.has('ManageGuild')) {
+        if (interaction.member.permissions.has('Administrator') || interaction.member.permissions.has('ManageGuild')) {
             let embed = interaction.message.embeds[0].data;
-            embed.color = 0xff0000;
+            embed.color = Colors.Error;
             embed.footer.text = "Status: Denied"
             await interaction.message.edit({
                 embeds: [embed]

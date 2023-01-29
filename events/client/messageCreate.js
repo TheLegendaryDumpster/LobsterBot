@@ -1,24 +1,25 @@
 const { ButtonBuilder } = require("@discordjs/builders")
 const { ActionRowBuilder, ButtonStyle } = require("discord.js")
 const profanity = require('../../profanity.js');
+const { Colors } = require("../../things.js");
 // ⬆️⬇️✅⛔⚒️
 module.exports = {
     name: "messageCreate",
     async execute(message, client, fns) {
-        if(message.author.bot) return;
+        if (message.author.bot) return;
         const users = message.mentions.users.map((user) => user.id);
         // const userTags = message.mentions.users.map((user) => user.tag);
         const disallowedUsers = [];
         let profanityFilterEnabled = false;
         try {
-            let profanityFilterEnabledObj = await fns.get("Filter"+message.guildId);
+            let profanityFilterEnabledObj = await fns.get("Filter" + message.guildId);
             profanityFilterEnabled = profanityFilterEnabledObj.data == 'true' ? true : false;
-        } catch {}
-        if(process.env.TESTING && message.guildId == process.env.guildId && profanityFilterEnabled && profanity.some(word=>message.content.includes(word))) {
+        } catch { }
+        if (process.env.TESTING && message.guildId == process.env.guildId && profanityFilterEnabled && profanity.some(word => message.content.includes(word))) {
             await message.delete();
             await message.author.send('Please do not say that here!')
         }
-        for(let i = 0;i < users.length;i++) {
+        for (let i = 0; i < users.length; i++) {
             let user = users[i];
             let isAllowed = true;
             try {
@@ -27,32 +28,32 @@ module.exports = {
             } catch {
                 isAllowed = true;
             }
-            if(!isAllowed) {
+            if (!isAllowed) {
                 disallowedUsers.push(users[i]);
             }
         }
-        if(disallowedUsers.length) {
+        if (disallowedUsers.length) {
             await message.reply({
                 embeds: [
                     {
                         title: `${disallowedUsers.length} user${disallowedUsers.length > 1 ? "s has" : " has"} pings disabled`,
                         description: `Users: <@${disallowedUsers.join(">, <@")}>`,
-                        color: 0xff4400
+                        color: Colors.Main
                     }
                 ]
             })
         }
         let suggestionsChannel = '0';
         try {
-            let suggestionsChannelObj = await fns.get('SuggestChannel'+message.guildId);
+            let suggestionsChannelObj = await fns.get('SuggestChannel' + message.guildId);
             suggestionsChannel = suggestionsChannelObj.data;
-        } catch {}
-        if(message.channelId == suggestionsChannel) {
-            let currentSuggestionCount = await fns.get('SuggestionCount-'+message.guildId);
-            if(currentSuggestionCount.data) {
-                await fns.put('SuggestionCount-'+message.guildId, currentSuggestionCount.data + 1)
+        } catch { }
+        if (message.channelId == suggestionsChannel) {
+            let currentSuggestionCount = await fns.get('SuggestionCount-' + message.guildId);
+            if (currentSuggestionCount.data) {
+                await fns.put('SuggestionCount-' + message.guildId, parseInt(currentSuggestionCount.data) + 1)
             } else {
-                await fns.put('SuggestionCount-'+message.guildId, 2)
+                await fns.put('SuggestionCount-' + message.guildId, 2)
             }
             let btn = new ButtonBuilder()
                 .setCustomId('accept')

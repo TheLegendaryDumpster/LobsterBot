@@ -4,23 +4,23 @@ var level = require('level').Level;
 var db = new level('db');
 
 function dbDel(key) {
-    return new Promise((resolve, reject)=> {
-        db.del(key, (err)=>{
-            resolve({err});
+    return new Promise((resolve, reject) => {
+        db.del(key, (err) => {
+            resolve({ err });
         })
     })
 }
 function dbPut(key, val) {
-    return new Promise((resolve, reject)=>{
-        db.put(key, val, (err)=>{
-            resolve({err});
+    return new Promise((resolve, reject) => {
+        db.put(key, val, (err) => {
+            resolve({ err });
         })
     })
 }
 function dbGet(key) {
-    return new Promise((resolve, reject)=>{
-        db.get(key, (err,data)=>{
-            resolve({err,data});
+    return new Promise((resolve, reject) => {
+        db.get(key, (err, data) => {
+            resolve({ err, data });
         })
     })
 }
@@ -46,11 +46,11 @@ client.buttons = new Collection();
 // client.guilds.fetch('0').then(guild=>{
 //     guild.publicUpdatesChannel
 // })
-const fns = {put:dbPut,get:dbGet,del:dbDel}
+const fns = { put: dbPut, get: dbGet, del: dbDel }
 const functionFolders = fs.readdirSync('./functions');
-for(const folder of functionFolders) {
-    const functionFiles = fs.readdirSync('./functions/'+folder).filter(file=>file.endsWith('.js'));
-    for(const file of functionFiles) require('./functions/'+folder+'/'+file)(client,fns);
+for (const folder of functionFolders) {
+    const functionFiles = fs.readdirSync('./functions/' + folder).filter(file => file.endsWith('.js'));
+    for (const file of functionFiles) require('./functions/' + folder + '/' + file)(client, fns);
 }
 
 client.handleEvents();

@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
+const { Colors } = require("../../things");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,8 +9,8 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Credits')
             .setDescription('eye#1485\nZobblestone Studios#0001')
-            .setColor(0x53a4f5)
-        
+            .setColor(Colors.Main)
+
         await interaction.reply({
             embeds: [embed]
         })

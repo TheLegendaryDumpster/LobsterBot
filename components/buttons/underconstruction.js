@@ -1,11 +1,13 @@
+const { Colors } = require("../../things");
+
 module.exports = {
     data: {
         name: "underconstruction"
     },
     async execute(interaction, client) {
-        if(interaction.member.permissions.has('Administrator') || interaction.member.permissions.has('ManageGuild')) {
+        if (interaction.member.permissions.has('Administrator') || interaction.member.permissions.has('ManageGuild')) {
             let embed = interaction.message.embeds[0].data;
-            embed.color = 0x00ffff;
+            embed.color = Colors.Secondary;
             embed.footer.text = "Status: Under Construction"
             await interaction.message.edit({
                 embeds: [embed]
