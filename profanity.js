@@ -445,6 +445,7 @@ let block_list = [
     "wichser",
     "wop*",
     "yed",
-    "zabourah" 
+    "zabourah",
+    "hw lifjhbpiugherp9yg*O&I^ 875*V^"
   ]
 module.exports = block_list;
