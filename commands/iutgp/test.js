@@ -9,6 +9,6 @@ module.exports = {
                 .setDescription("What to say.")
                 .setRequired(true)),
     async execute(interaction, client, fns) {
-        interaction.reply(interaction.options.get('string').value)
+        interaction.reply(interaction.options.get('text').value)
     }
 }
