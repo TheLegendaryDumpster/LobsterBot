@@ -2,13 +2,13 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("testtitle")
-        .setDescription("test")
+        .setName("say")
+        .setDescription("Make the bot say something.")
         .addStringOption(option=>
-            option.setName("string")
-                .setDescription("TEST")
+            option.setName("Text")
+                .setDescription("What to say.")
                 .setRequired(true)),
     async execute(interaction, client, fns) {
-        interaction.reply(`u inputted ${interaction.options.get('string').value}`)
+        interaction.reply(interaction.options.get('string').value)
     }
 }
