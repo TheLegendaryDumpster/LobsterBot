@@ -24,7 +24,7 @@ module.exports = {
                 console.error(e);
                 isAllowed = true;
             }
-            await interaction.reply({content: isAllowed ? `✅ Pings enabled` : `❌ Pings disabled`, ephemeral: true});
+            await interaction.reply({content: isAllowed ? `✅ Pings are currently enabled` : `❌ Pings are currently disabled`, ephemeral: true});
         }
     } catch {
         let isAllowed;
@@ -36,7 +36,7 @@ module.exports = {
             console.error(e);
             isAllowed = true;
         }
-        await interaction.reply({content: isAllowed ? `✅ Pings enabled` : `❌ Pings disabled`, ephemeral: true});
+        await interaction.reply({content: isAllowed ? `✅ Pings are currently enabled` : `❌ Pings are currently disabled`, ephemeral: true});
 
     }
     }
