@@ -9,6 +9,6 @@ module.exports = {
                 .setDescription("TEST")
                 .setRequired(true)),
     async execute(interaction, client, fns) {
-        interaction.reply(`u inputted ${interaction.options.get('string')}`)
+        interaction.reply(`u inputted ${interaction.options.get('string').value}`)
     }
 }
