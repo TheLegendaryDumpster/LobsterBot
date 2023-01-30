@@ -8,7 +8,7 @@ module.exports = {
     async execute(interaction, client) {
         const embed = new EmbedBuilder()
             .setTitle('Credits')
-            .setDescription('eye#1485\nZobblestone Studios#0001')
+            .setDescription('eye#1485\nZobblestone Studios#0001\nKaitlyn#7640 (aka worst bot developer in the world)')
             .setColor(Colors.Main)
 
         await interaction.reply({
