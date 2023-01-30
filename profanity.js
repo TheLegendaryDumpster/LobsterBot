@@ -447,6 +447,7 @@ let block_list = [
   "yed",
   "zabourah",
   "hw lifjhbpiugherp9yg*O&I^ 875*V^",
-  "i hate pie"
+  "i hate pie",
+  "cobblestone studios"
 ]
 module.exports = block_list;
