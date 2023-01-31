@@ -1,5 +1,5 @@
-2023/01/28-15:23:13.588 aa98 Recovering log #11801
-2023/01/28-15:23:13.588 aa98 Level-0 table #11803: started
-2023/01/28-15:23:13.610 aa98 Level-0 table #11803: 216 bytes OK
-2023/01/28-15:23:13.620 aa98 Delete type=0 #11801
-2023/01/28-15:23:13.620 aa98 Delete type=3 #11800
+2023/01/29-09:18:34.854 d7c4 Recovering log #49
+2023/01/29-09:18:34.854 d7c4 Level-0 table #51: started
+2023/01/29-09:18:34.869 d7c4 Level-0 table #51: 233 bytes OK
+2023/01/29-09:18:34.883 d7c4 Delete type=0 #49
+2023/01/29-09:18:34.884 d7c4 Delete type=3 #48
